@@ -1,100 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071426">
-  <meta name="description" content="EDITOR FF — ton centre communautaire Free Fire : quiz, roue de skins, sensibilité et actualités.">
-  <title>EDITOR FF — Ton univers Free Fire</title>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111e">
+<title>EDITOR FF — Cyber Arena</title>
+<style>
+:root{--bg:#06101d;--panel:rgba(9,23,40,.88);--line:rgba(67,203,255,.23);--cyan:#42dcff;--blue:#397dff;--violet:#a36bff;--muted:#9bb1c7;--white:#eef8ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(90deg,rgba(3,9,18,.96),rgba(4,13,25,.76)),url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=85") center/cover}
+body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 78% 20%,rgba(35,177,255,.2),transparent 35%),radial-gradient(ellipse at 12% 75%,rgba(125,60,255,.15),transparent 30%)}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(3,10,19,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:950;letter-spacing:2px;font-size:1.2rem}.brand span{color:var(--cyan);text-shadow:0 0 18px var(--cyan)}
+.navlinks{display:flex;gap:20px;color:#c2d6e8;font-size:.86rem}.navlinks a:hover{color:var(--cyan)}.menu{display:none;background:transparent;border:1px solid var(--line);color:white;padding:8px 12px;border-radius:9px}
+.hero{min-height:560px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;padding:65px 0 45px}
+.eyebrow{color:var(--cyan);font-size:.74rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:800}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#50efb1;box-shadow:0 0 13px #50efb1;margin-right:8px}
+h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.92;margin:18px 0;letter-spacing:-3px}h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 28px #168acb}
+.lead{color:#b5c8da;line-height:1.7;max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{border:1px solid var(--line);border-radius:11px;padding:12px 17px;color:white;background:rgba(20,43,68,.75);font-weight:750;cursor:pointer;transition:.2s}.btn.primary{background:linear-gradient(100deg,#147dbb,#4658d8);border:0;box-shadow:0 8px 30px #167ac044}.btn:hover{transform:translateY(-3px);box-shadow:0 0 24px #2bcfff33}
+.hero-art{min-height:390px;position:relative;display:grid;place-items:center}.orb{width:min(370px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#254b77,#10233c 45%,#07111e 70%);border:1px solid #50d9ff66;box-shadow:0 0 75px #168fd944,inset 0 0 60px #2464a633;display:grid;place-items:center;animation:float 6s ease-in-out infinite}
+.orb:before,.orb:after{content:"";position:absolute;width:390px;height:390px;border:1px solid #3ad9ff44;border-radius:50%;transform:rotateX(70deg)}.orb:after{width:440px;height:440px;transform:rotateY(68deg) rotateX(65deg)}
+.hero-mark{font-size:6rem;font-weight:1000;letter-spacing:-10px;color:#e9faff;text-shadow:0 0 20px #39cfff,0 0 55px #2d7dff}.float-tag{position:absolute;padding:10px 14px;border:1px solid var(--line);background:#081a2ddd;border-radius:10px;color:#dff8ff;font-size:.78rem;backdrop-filter:blur(10px)}.tag-a{top:12%;right:0}.tag-b{bottom:15%;left:0}
+@keyframes float{50%{transform:translateY(-13px)}}@keyframes glow{50%{box-shadow:0 0 28px #31d6ff66}}
+section{padding:55px 0;scroll-margin-top:75px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:23px}.kicker{font-size:.7rem;letter-spacing:2px;color:var(--cyan);font-weight:850;text-transform:uppercase}h2{font-size:clamp(1.7rem,4vw,2.5rem);margin:8px 0 0}.sub{color:var(--muted);font-size:.9rem;line-height:1.6;max-width:650px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px;backdrop-filter:blur(12px);box-shadow:0 12px 35px #0003;transition:.25s}.card:hover{transform:translateY(-5px);border-color:#42dcff88}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#143e61,#252b66);font-size:1.25rem;margin-bottom:14px}.card h3{margin:0 0 8px}.card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.6}
+.tool-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px;margin:12px 0}.field label{font-size:.8rem;color:#b9d0e4}.field input,.field select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#071626;color:white;outline:none}.result{margin-top:12px;padding:14px;border-radius:11px;background:#061522;border:1px dashed #3acfff66;color:#d8f7ff;min-height:50px;line-height:1.5}
+.badge-demo{width:76px;height:76px;margin:4px auto 15px;display:grid;place-items:center;clip-path:polygon(50% 0,91% 22%,91% 78%,50% 100%,9% 78%,9% 22%);background:linear-gradient(145deg,#fff3a0,#d69a20 50%,#704500);color:#241800;font-weight:1000;font-size:2.4rem;text-shadow:0 1px 0 #fff8}
+.badge-card{text-align:center}.badge-card .note{font-size:.78rem;color:#f4d98b}
+.pill{display:inline-block;border:1px solid #3bd7ff55;color:#8beaff;padding:5px 9px;border-radius:30px;font-size:.7rem;margin:4px 3px 0 0}
+.player-list{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.player{display:flex;gap:12px;align-items:center}.flag{font-size:1.8rem}.player small{display:block;color:var(--muted);margin-top:4px}
+.wheel-wrap{display:grid;grid-template-columns:300px 1fr;gap:25px;align-items:center}.wheel{width:270px;aspect-ratio:1;border-radius:50%;border:8px solid #183e5c;background:conic-gradient(#2a9acb 0 60deg,#263e91 60deg 120deg,#7846b5 120deg 180deg,#168d8e 180deg 240deg,#245b9e 240deg 300deg,#8555ac 300deg);display:grid;place-items:center;box-shadow:0 0 40px #27baff33;position:relative}.wheel:after{content:"EDITOR";font-weight:1000;font-size:1.7rem;color:white;text-shadow:0 2px 12px #000}.wheel-pointer{font-size:2rem;color:#ffe28a;position:absolute;top:-22px;left:calc(50% - 14px)}
+.table{width:100%;border-collapse:collapse;margin-top:12px}.table th,.table td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:.86rem}.table th{color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#8ca5bb;font-size:.8rem;margin-top:35px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.notice{border-left:3px solid #e7b947;padding:10px 13px;background:#2a2111aa;color:#f4dfaa;border-radius:0 9px 9px 0;font-size:.8rem;line-height:1.5}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:320px}.grid,.player-list{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:#071321;padding:20px;flex-direction:column}.navlinks.open{display:flex}.menu{display:block}.tool-layout{grid-template-columns:1fr}.wheel-wrap{grid-template-columns:1fr;justify-items:center}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:520px){.grid,.player-list{grid-template-columns:1fr}.orb{width:260px}.orb:before{width:280px;height:280px}.orb:after{width:310px;height:310px}.hero{min-height:auto}.hero-art{min-height:290px}h1{letter-spacing:-2px}}
+</style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#accueil"><span class="brand-mark">E</span><span>EDITOR <b>FF</b></span></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
-  <nav id="nav">
-    <a href="#outils">Outils</a><a href="#skins">Galerie</a><a href="#quiz">Quiz</a><a href="#actus">Actualités</a>
-  </nav>
-  <a class="top-cta" href="#outils">Explorer</a>
-</header>
-
-<main>
-<section class="hero" id="accueil">
-  <div class="hero-shade"></div>
-  <div class="hero-content">
-    <p class="eyebrow"><span class="live-dot"></span> LE HUB DES JOUEURS FREE FIRE</p>
-    <h1>TON UNIVERS<br><em>FREE FIRE</em><br>COMMENCE ICI.</h1>
-    <p class="hero-copy">Prépare tes réglages, teste tes connaissances et découvre les nouveautés de la communauté.</p>
-    <div class="hero-actions"><a class="btn primary" href="#outils">Découvrir les outils <span>↗</span></a><a class="btn ghost" href="#skins">Voir la galerie</a></div>
-    <div class="hero-stats"><div><strong>06</strong><span>OUTILS JOUEURS</span></div><div><strong>100%</strong><span>GRATUIT</span></div><div><strong>FF</strong><span>COMMUNAUTÉ</span></div></div>
-  </div>
-  <div class="hero-note"><span class="note-line"></span><span>PLAY SMART. RISE HIGH.</span></div>
-</section>
-
-<section class="intro section">
-  <div><p class="eyebrow">BIENVENUE SUR EDITOR FF</p><h2>Plus qu'un site.<br><em>Un espace de joueurs.</em></h2></div>
-  <p class="muted intro-text">Retrouve au même endroit des outils pratiques, des défis et des inspirations pour tes prochaines parties. Les visuels illustrent l'univers du jeu ; les annonces officielles restent à vérifier auprès de Garena.</p>
-</section>
-
-<section class="section" id="outils">
-  <div class="section-head"><div><p class="eyebrow">TON ÉQUIPEMENT NUMÉRIQUE</p><h2>Les outils <em>du joueur</em></h2></div><span class="section-index">01 / TOOLS</span></div>
-  <div class="tool-grid">
-    <article class="tool-card featured">
-      <div class="tool-icon">⌖</div><span class="tag">POPULAIRE</span><h3>Générateur de sensibilité</h3>
-      <p>Obtiens une base de réglages selon ton téléphone et ajuste-la à ton style de jeu.</p>
-      <button class="text-btn" data-open="sensi">Créer mes réglages <b>→</b></button>
-    </article>
-    <article class="tool-card"><div class="tool-icon">◈</div><h3>Roue de skins</h3><p>Laisse le hasard choisir un thème de skin pour ton prochain défi.</p><button class="text-btn" data-open="wheel">Lancer la roue <b>→</b></button></article>
-    <article class="tool-card"><div class="tool-icon">▤</div><h3>Quiz Free Fire</h3><p>10 questions pour mesurer tes connaissances et décrocher un score.</p><a class="text-btn" href="#quiz">Passer le quiz <b>→</b></a></article>
-    <article class="tool-card"><div class="tool-icon">✦</div><h3>Conseils de jeu</h3><p>Des rappels simples pour travailler tes déplacements, ton placement et ton jeu en équipe.</p><a class="text-btn" href="#conseils">Voir les conseils <b>→</b></a></article>
-  </div>
-</section>
-
-<section class="gallery-section section" id="skins">
-  <div class="section-head"><div><p class="eyebrow">INSPIRATION VISUELLE</p><h2>Dans l'univers <em>Free Fire</em></h2></div><span class="section-index">02 / GALLERY</span></div>
-  <p class="muted">Une sélection de visuels d'ambiance. Remplace-les par tes propres captures ou des images officielles que tu as le droit d'utiliser.</p>
-  <div class="gallery">
-    <figure class="gallery-large"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85" alt="Ambiance de jeu vidéo et compétition"><figcaption><b>MODE COMPÉTITIF</b><span>La concentration avant tout</span></figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=85" alt="Installation de jeu vidéo"><figcaption><b>SETUP GAMING</b><span>Prépare ton espace</span></figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=85" alt="Manette et accessoires de jeu"><figcaption><b>ÉQUIPEMENT</b><span>À chacun son style</span></figcaption></figure>
-  </div>
-</section>
-
-<section class="section quiz-section" id="quiz">
-  <div class="section-head"><div><p class="eyebrow">DÉFI COMMUNAUTAIRE</p><h2>Tu connais vraiment <em>Free Fire ?</em></h2></div><span class="section-index">03 / QUIZ</span></div>
-  <div class="quiz-box">
-    <div class="quiz-top"><span id="quizProgress">QUESTION 1 / 5</span><span id="quizScore">SCORE : 0</span></div>
-    <div class="progress"><span id="progressFill"></span></div>
-    <h3 id="question">Quel est l'objectif principal d'une partie Battle Royale ?</h3>
-    <div class="answers" id="answers"></div>
-    <p id="quizFeedback" class="feedback" aria-live="polite"></p>
-    <button class="btn primary" id="nextQuestion" disabled>Question suivante →</button>
-  </div>
-</section>
-
-<section class="section split-section" id="conseils">
-  <div class="tips-art"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1000&q=85" alt="Écran de jeu dans une ambiance sombre"><span class="art-label">EDITOR FF / PLAYER ZONE</span></div>
-  <div class="tips-copy"><p class="eyebrow">PROGRESSER INTELLIGEMMENT</p><h2>Le talent se construit <em>partie après partie.</em></h2>
-    <ul class="tips-list"><li><b>01</b><span><strong>Travaille ta précision</strong><small>Privilégie des sessions courtes et régulières.</small></span></li><li><b>02</b><span><strong>Observe la zone</strong><small>Anticipe tes déplacements et évite de courir sans plan.</small></span></li><li><b>03</b><span><strong>Joue en équipe</strong><small>Communique clairement et aide tes coéquipiers.</small></span></li></ul>
-  </div>
-</section>
-
-<section class="news-section section" id="actus">
-  <div class="section-head"><div><p class="eyebrow">RESTE INFORMÉ</p><h2>Le coin <em>actualités</em></h2></div><span class="section-index">04 / NEWS</span></div>
-  <div class="news-card"><div class="news-symbol">FF</div><div><span class="tag">SOURCE OFFICIELLE</span><h3>Les annonces et événements du jeu</h3><p class="muted">Consulte les informations publiées par Garena pour vérifier les dates, récompenses et nouveautés.</p><a class="text-btn" href="https://ff.garena.com/" target="_blank" rel="noopener">Visiter le site officiel <b>↗</b></a></div></div>
-</section>
-
-<section class="community">
-  <p class="eyebrow">LA COMMUNAUTÉ EDITOR FF</p><h2>On se retrouve <em>sur le terrain.</em></h2><p>Des outils, des idées et de la passion pour les joueurs.</p>
-  <a class="btn primary" href="https://www.tiktok.com/@editor_ff.freefire" target="_blank" rel="noopener">Suivre @editor_ff.freefire ↗</a>
-</section>
+<header><div class="wrap nav"><a class="brand" href="#home">EDITOR <span>FF</span></a><nav class="navlinks" id="navlinks"><a href="#outils">Outils</a><a href="#vbadge">V Badge</a><a href="#monde">Monde FF</a><a href="#armes">Armes</a><a href="#personnages">Personnages</a></nav><button class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button></div></header>
+<main class="wrap">
+<section class="hero" id="home"><div><div class="eyebrow"><span class="pulse"></span> CYBER ARENA • COMMUNAUTÉ FREE FIRE</div><h1>ENTER THE<br><em>ARENA.</em></h1><p class="lead">Bienvenue sur EDITOR FF : ton espace communautaire pour explorer les nouveautés, découvrir les personnages, consulter des guides et personnaliser ton expérience Free Fire.</p><div class="actions"><a class="btn primary" href="#outils">Explorer les outils ↗</a><a class="btn" href="#monde">Découvrir la communauté</a></div><div style="margin-top:24px"><span class="pill">SENSIBILITÉ</span><span class="pill">V BADGE</span><span class="pill">GLOBAL COMMUNITY</span></div></div>
+<div class="hero-art"><div class="orb"><div class="hero-mark">FF</div></div><div class="float-tag tag-a">◈ CYBER ARENA / 2026</div><div class="float-tag tag-b">● SYSTEM ONLINE</div></div></section>
+<section id="outils"><div class="section-head"><div><div class="kicker">PLAYER CENTER</div><h2>Les outils du combattant</h2></div><p class="sub">Des outils simples pour préparer tes parties. Les réglages proposés sont des points de départ à tester, pas une garantie de performance.</p></div>
+<div class="tool-layout"><div class="card"><div class="icon">🎯</div><h3>Générateur de sensibilité</h3><p>Choisis ton appareil et ton style pour obtenir une base de réglages personnalisable.</p><div class="field"><label>Type de téléphone</label><select id="phone"><option>Android entrée de gamme</option><option>Android milieu de gamme</option><option>Android haut de gamme</option><option>iPhone</option></select></div><div class="field"><label>Style de jeu</label><select id="style"><option>Équilibré</option><option>Précision et contrôle</option><option>Réactivité</option></select></div><button class="btn primary" onclick="generateSensi()">Générer ma sensibilité</button><div class="result" id="sensiResult">Tes réglages apparaîtront ici.</div></div>
+<div class="card"><div class="icon">🪪</div><h3>Recherche de joueur par ID</h3><p>Prépare une recherche de profil à effectuer dans le jeu. Ce site ne se connecte pas aux serveurs Garena.</p><div class="field"><label>Identifiant Free Fire (UID)</label><input id="uid" inputmode="numeric" placeholder="Ex. : 123456789"></div><button class="btn primary" onclick="lookupPlayer()">Vérifier l'ID</button><div class="result" id="uidResult">Entre un UID pour obtenir un rappel de vérification.</div></div></div></section>
+<section id="vbadge"><div class="section-head"><div><div class="kicker">CREATOR STATUS</div><h2>V Badge & nouveautés</h2></div><p class="sub">Le V Badge officiel est un statut accordé par Garena. Les visuels ci-dessous sont des illustrations d'interface, pas des badges attribués aux comptes.</p></div>
+<div class="grid"><div class="card badge-card"><div class="badge-demo">V</div><h3>V Badge officiel</h3><div class="note">Statut de créateur reconnu</div><p>Vérifie toujours le badge directement sur le profil en jeu. Une image ou un symbole copié ne donne pas le statut officiel.</p></div>
+<div class="card"><div class="icon">🧩</div><h3>V-Badge Presets</h3><p>La mise à jour OB55 présente une rubrique de recommandations de presets associés à des créateurs et joueurs pros, avec filtres par mode et rôle.</p><a class="pill" href="https://ff.garena.com/en/news" target="_blank" rel="noopener">Notes officielles Garena ↗</a></div>
+<div class="card"><div class="icon">🛡️</div><h3>Attention aux faux badges</h3><p>Aucun site ne peut activer le vrai V Badge sur ton compte. Ne partage jamais ton mot de passe, tes codes ou tes informations de connexion.</p><span class="pill">Sécurité du compte</span></div></div></section>
+<section id="monde"><div class="section-head"><div><div class="kicker">GLOBAL COMMUNITY</div><h2>Free Fire dans le monde</h2></div><p class="sub">Une vitrine communautaire avec des régions et des joueurs à découvrir. Les profils affichés sont des exemples de présentation, pas un classement officiel.</p></div>
+<div class="player-list"><div class="card player"><span class="flag">🌍</span><div><b>Communauté mondiale</b><small>Joueurs de toutes les régions</small></div></div><div class="card player"><span class="flag">🇹🇬</span><div><b>Afrique de l’Ouest</b><small>Togo • Côte d’Ivoire • Sénégal</small></div></div><div class="card player"><span class="flag">🇧🇷</span><div><b>Amérique latine</b><small>Brésil • Amérique du Sud</small></div></div><div class="card player"><span class="flag">🇮🇳</span><div><b>Asie du Sud</b><small>Inde • Bangladesh • Népal</small></div></div><div class="card player"><span class="flag">🇲🇦</span><div><b>Afrique du Nord</b><small>Maroc • Algérie • Tunisie</small></div></div><div class="card player"><span class="flag">🇮🇩</span><div><b>Asie du Sud-Est</b><small>Indonésie • Thaïlande • Vietnam</small></div></div></div>
+<div class="notice" style="margin-top:15px">Les régions sont présentées à titre communautaire. Les classements mondiaux et les statistiques en direct nécessitent une source de données officielle ou une API autorisée.</div></section>
+<section id="skins"><div class="section-head"><div><div class="kicker">LUCKY SPIN</div><h2>Roue de skins</h2></div><p class="sub">Fais tourner la roue pour obtenir une idée de skin à rechercher dans ta collection.</p></div><div class="card wheel-wrap"><div class="wheel" id="wheel"><span class="wheel-pointer">▼</span></div><div><h3>Quelle collection vas-tu découvrir ?</h3><p class="sub">La roue est un mini-jeu aléatoire pour s'amuser. Elle ne donne aucun objet dans Free Fire.</p><button class="btn primary" id="spinBtn" onclick="spinWheel()">Lancer la roue</button><div class="result" id="wheelResult">Appuie sur le bouton pour lancer la roue.</div></div></div></section>
+<section id="armes"><div class="section-head"><div><div class="kicker">ARSENAL DATABASE</div><h2>Armes & statistiques</h2></div><p class="sub">Aperçu informatif de catégories d'armes et de leurs caractéristiques générales. Les valeurs de jeu peuvent évoluer selon les mises à jour.</p></div><div class="card"><table class="table"><thead><tr><th>Catégorie</th><th>Points forts</th><th>À prendre en compte</th></tr></thead><tbody><tr><td>Fusil d'assaut</td><td>Polyvalence</td><td>Recul et distance</td></tr><tr><td>Fusil de précision</td><td>Portée</td><td>Demande de la précision</td></tr><tr><td>Fusil à pompe</td><td>Combat rapproché</td><td>Portée limitée</td></tr><tr><td>PM</td><td>Mobilité</td><td>Efficacité à courte portée</td></tr></tbody></table></div></section>
+<section id="personnages"><div class="section-head"><div><div class="kicker">CHARACTER INTEL</div><h2>Guides des personnages</h2></div><p class="sub">Comprends les rôles et construis une combinaison cohérente avec ta façon de jouer.</p></div><div class="grid"><div class="card"><div class="icon">⚡</div><h3>Personnages offensifs</h3><p>Privilégie les compétences qui soutiennent ton rythme de jeu et tes engagements.</p></div><div class="card"><div class="icon">🧱</div><h3>Personnages défensifs</h3><p>Utile pour tenir une position, protéger ton équipe et gérer les moments difficiles.</p></div><div class="card"><div class="icon">💚</div><h3>Soutien & récupération</h3><p>Des compétences qui peuvent aider l'équipe à rester active et coordonnée.</p></div></div></section>
 </main>
-
-<footer><a class="brand" href="#accueil"><span class="brand-mark">E</span><span>EDITOR <b>FF</b></span></a><span>Un site communautaire indépendant, non affilié à Garena.</span><a href="#accueil">Retour en haut ↑</a></footer>
-
-<div class="modal" id="sensiModal" role="dialog" aria-modal="true" aria-labelledby="sensiTitle"><div class="modal-panel"><button class="close" data-close aria-label="Fermer">×</button><p class="eyebrow">OUTIL PERSONNALISÉ</p><h2 id="sensiTitle">Ta sensibilité <em>de départ</em></h2><p class="muted">Choisis ton appareil. Ces valeurs sont indicatives : ajuste-les dans le jeu selon ton ressenti.</p><label>Marque du téléphone<select id="phoneBrand"><option>Infinix</option><option>Tecno</option><option>Samsung</option><option>iPhone</option><option>Xiaomi</option><option>Huawei</option><option>Autre Android</option></select></label><label>Type d'appareil<select id="phoneType"><option value="standard">Entrée / milieu de gamme</option><option value="power">Performances élevées</option></select></label><button class="btn primary" id="makeSensi">Générer mes valeurs</button><div class="sensi-result" id="sensiResult">Tes réglages apparaîtront ici.</div></div></div>
-<div class="modal" id="wheelModal" role="dialog" aria-modal="true" aria-labelledby="wheelTitle"><div class="modal-panel wheel-panel"><button class="close" data-close aria-label="Fermer">×</button><p class="eyebrow">TIRAGE ALÉATOIRE</p><h2 id="wheelTitle">Roue de <em>skins</em></h2><div class="wheel" id="wheel">FF</div><button class="btn primary" id="spinWheel">Faire tourner</button><p id="wheelResult" class="feedback">Prêt pour le tirage ?</p><small class="muted">Mini-jeu de divertissement : aucun objet n'est attribué dans Free Fire.</small></div></div>
-<script src="script.js"></script>
-</body>
-</html>
+<footer><div class="wrap foot"><span><b>EDITOR FF</b> — Cyber Arena</span><span>Fan-site non officiel • Non affilié à Garena</span><span>© 2026 EDITOR FF</span></div></footer>
+<script>
+function generateSensi(){const phone=document.getElementById('phone').value,style=document.getElementById('style').value;let base=phone.includes('entrée')?{g:88,r:82,s:76}:{g:94,r:88,s:82};if(phone==='iPhone')base={g:91,r:86,s:80};if(style.includes('Précision'))base={g:Math.max(70,base.g-8),r:Math.max(65,base.r-8),s:Math.max(60,base.s-8)};if(style==='Réactivité')base={g:Math.min(100,base.g+4),r:Math.min(100,base.r+5),s:Math.min(100,base.s+6)};document.getElementById('sensiResult').innerHTML='<b>Base suggérée :</b><br>Général : '+base.g+'<br>Point rouge : '+base.r+'<br>2x : '+base.s+'<br><small>Teste progressivement et ajuste selon ton appareil.</small>'}
+function lookupPlayer(){const v=document.getElementById('uid').value.trim();const out=document.getElementById('uidResult');if(!/^[0-9]{5,15}$/.test(v)){out.textContent='Entre un UID numérique valide (5 à 15 chiffres).';return}out.innerHTML='UID saisi : <b>'+v+'</b><br>Pour confirmer le pseudo et le profil, recherche cet ID directement dans Free Fire. EDITOR FF ne récupère pas les données privées ou en direct.'}
+const prizes=['Collection futuriste','Skin néon','Tenue tactique','Style légendaire','Collection cyber','Look aléatoire'];let spinning=false;
+function spinWheel(){if(spinning)return;spinning=true;const w=document.getElementById('wheel'),b=document.getElementById('spinBtn'),out=document.getElementById('wheelResult');b.disabled=true;const turns=1440+Math.floor(Math.random()*900);w.style.transition='transform 3.4s cubic-bezier(.12,.75,.15,1)';w.style.transform='rotate('+turns+'deg)';setTimeout(()=>{const p=prizes[Math.floor(Math.random()*prizes.length)];out.innerHTML='Résultat : <b>'+p+'</b><br><small>Résultat ludique uniquement — aucun objet n’est ajouté au compte.</small>';spinning=false;b.disabled=false},3500)}
+</script>
+</body></html>
